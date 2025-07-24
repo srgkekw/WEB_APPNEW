@@ -1,3 +1,5 @@
+version: '3.8'
+
 services:
   backend:
     build: ./Backend
@@ -6,7 +8,10 @@ services:
       - "5000:5000"
     volumes:
       - ./Backend:/app
+      - ./Backend/mydatabase.db:/app/mydatabase.db  # подключаем базу к хосту
     restart: always
+    command: >
+      sh -c "python init_db.py && python app.py"  # инициализируем БД перед запуском приложения
 
   frontend:
     build: ./Frontend

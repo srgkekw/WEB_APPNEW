@@ -5,7 +5,7 @@ from flask_sqlalchemy import SQLAlchemy
 import pika
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///mydatabase.db?check_same_thread=False'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////app/mydatabase.db'
 db = SQLAlchemy(app)
 
 class Post(db.Model):
@@ -13,6 +13,7 @@ class Post(db.Model):
     title = db.Column(db.String(300), nullable=False)
     text = db.Column(db.Text, nullable=False)
 
+@app.route('/')
 @app.route('/api/')
 @app.route('/index')
 def index():
