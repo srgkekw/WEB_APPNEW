@@ -53,11 +53,11 @@
     <Content Include="Frontend\Static\img\FI.png" />
     <Content Include="Frontend\Static\img\TG.png" />
     <Content Include="Frontend\Static\img\webart.png" />
-    <Content Include="Frontend\templates\about.html" />
-    <Content Include="Frontend\templates\base.html" />
-    <Content Include="Frontend\templates\create.html" />
-    <Content Include="Frontend\templates\index.html" />
-    <Content Include="Frontend\templates\orders.html" />
+    <Content Include="Backend\templates\about.html" />
+    <Content Include="Backend\templates\base.html" />
+    <Content Include="Backend\templates\create.html" />
+    <Content Include="Backend\templates\index.html" />
+    <Content Include="Backend\templates\orders.html" />
     <Content Include="nginx.conf" />
     <Content Include="README.md" />
   </ItemGroup>
@@ -67,7 +67,7 @@
     <Folder Include="Frontend\Static\" />
     <Folder Include="Frontend\Static\css\" />
     <Folder Include="Frontend\Static\img\" />
-    <Folder Include="Frontend\templates\" />
+    <Folder Include="Backend\templates\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.Web.targets" />
   <!-- Specify pre- and post-build commands in the BeforeBuild and 
