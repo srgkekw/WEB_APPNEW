@@ -13,6 +13,7 @@ class Post(db.Model):
     title = db.Column(db.String(300), nullable=False)
     text = db.Column(db.Text, nullable=False)
 
+@app.route('/')
 @app.route('/api/')
 @app.route('/index')
 def index():
