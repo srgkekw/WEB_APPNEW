@@ -14,12 +14,14 @@ services:
   backend:
     build:
       context: ./Backend
+      dockerfile: Dockerfile
     networks:
       - dev
 
   frontend:
     build:
       context: ./Frontend
+      dockerfile: Dockerfile
     networks:
       - dev
 
