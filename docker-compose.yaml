@@ -5,25 +5,15 @@ services:
     ports:
       - "5000:5000"
     volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf
-    depends_on:
-      - backend
-      - frontend
-    networks:
-      - dev
-
-  backend:
-    build:
-      context: ./Backend
-    networks:
-      - dev
+      - ./Backend:/app
+    restart: always
 
   frontend:
-    build:
-      context: ./Frontend
-    networks:
-      - dev
+    build: ./Frontend
+    container_name: frontend
+    ports:
+      - "80:80"
+    restart: always
 
-networks:
-  dev:
-
+volumes:
+  static_volume:
