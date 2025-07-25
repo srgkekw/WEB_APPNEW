@@ -35,6 +35,7 @@
   <ItemGroup>
     <Content Include="Backend\dockerfile" />
     <Content Include="Backend\start.sh" />
+    <Content Include="Backend\templates\products.html" />
     <Content Include="docker-compose.yaml" />
     <Content Include="Frontend\dockerfile" />
     <Content Include="Backend\requirements.txt" />
