@@ -7,7 +7,7 @@ services:
     ports:
       - "5000:5000"
     volumes:
-      - ./Backend/app:/app
+      - ./Backend:/app
       - ./Backend/instance:/app/instance
     restart: always
     command: sh -c "chmod +x /app/start.sh && /app/start.sh"
