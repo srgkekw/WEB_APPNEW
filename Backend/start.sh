@@ -1,4 +1,4 @@
 ﻿#!/bin/sh
-python init_db.py &
-python app.py &
-python bot.py
+python3 init_db.py &
+python3 app.py &
+python3 bot.py
