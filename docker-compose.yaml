@@ -10,7 +10,7 @@ services:
       - ./Backend/app:/app
       - ./Backend/instance:/app/instance
     restart: always
-    command: sh -c "chmod +x start.sh && ./start.sh"
+    command: sh -c "chmod +x /app/start.sh && /app/start.sh"
 
   nginx:
     build: ./Frontend
