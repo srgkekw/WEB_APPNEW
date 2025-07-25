@@ -35,7 +35,7 @@ def create():
             db.session.add(post)
             db.session.commit()
 
-            connection = pika.BlockingConnection(pika.ConnectionParameters('localhost'))
+            connection = pika.BlockingConnection(pika.ConnectionParameters('rabbitmq'))
             channel = connection.channel()
             channel.queue_declare(queue='orders')
             channel.basic_publish(exchange='', routing_key='orders', body=f"{title}: {text}")

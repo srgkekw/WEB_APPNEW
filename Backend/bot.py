@@ -28,7 +28,7 @@ async def log_message(chat_id: int, message_id: int):
 
 # --- Конфигурация ---
 TOKEN = "8025883202:AAGS2AVDdp6C1skDFo-RHCJUXxyQkwpHWNE"
-RABBIT_URL = "amqp://guest:guest@localhost:5672/"
+RABBIT_URL = "amqp://guest:guest@rabbitmq:5672/"
 
 bot = Bot(
     token=TOKEN,

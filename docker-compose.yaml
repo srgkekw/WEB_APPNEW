@@ -8,10 +8,20 @@ services:
       - "5000:5000"
     volumes:
       - ./Backend:/app
-      - ./Backend/instance:/app/instance  
+      - ./Backend/instance:/app/instance
     restart: always
-    command: >
-      sh -c "python init_db.py && python app.py"  
+    command: sh -c "./start.sh"
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+    restart: always
 
   nginx:
     build: ./Frontend
