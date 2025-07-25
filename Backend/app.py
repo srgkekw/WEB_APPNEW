@@ -52,7 +52,7 @@ def about():
     return render_template('about.html')
 
 @app.route('/products')
-def about():
+def products():
     return render_template('products.html')
 
 if __name__ == '__main__':
