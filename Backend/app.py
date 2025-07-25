@@ -51,6 +51,10 @@ def create():
 def about():
     return render_template('about.html')
 
+@app.route('/products')
+def about():
+    return render_template('products.html')
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
     
