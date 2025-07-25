@@ -10,24 +10,15 @@ services:
       - ./Backend:/app
       - ./Backend/instance:/app/instance
     restart: always
-    command: sh -c "./start.sh"
-
-  rabbitmq:
-    image: rabbitmq:3-management
-    container_name: rabbitmq
-    ports:
-      - "5672:5672"
-      - "15672:15672"
-    environment:
-      RABBITMQ_DEFAULT_USER: guest
-      RABBITMQ_DEFAULT_PASS: guest
-    restart: always
+    command: sh -c "chmod +x start.sh && ./start.sh"
 
   nginx:
     build: ./Frontend
     container_name: nginx_server
     ports:
       - "80:80"
+    volumes:
+      - ./Frontend/Static:/usr/share/nginx/html
     depends_on:
       - backend
     restart: always
