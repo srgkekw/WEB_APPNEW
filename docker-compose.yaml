@@ -2,23 +2,33 @@ version: '3.8'
 
 services:
   backend:
-    build: ./Backend
+    build:
+      context: ./Backend
     container_name: flask_app
     ports:
       - "5000:5000"
     volumes:
       - ./Backend/instance:/app/instance
-    restart: always
     command: sh -c "chmod +x /app/start.sh && /app/start.sh"
+    restart: always
 
   nginx:
-    build: ./Frontend
+    build:
+      context: ./Frontend
     container_name: nginx_server
     ports:
       - "80:80"
     volumes:
-      - ./Frontend/Static:/usr/share/nginx/html
+      - ./Frontend/Static:/usr/share/nginx/html/static
       - ./Frontend/nginx.conf:/etc/nginx/nginx.conf:ro
     depends_on:
       - backend
+    restart: always
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
     restart: always
